@@ -140,7 +140,7 @@ export default {
     },
     deleteCoupon () {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon/${this.couponId}`
-        this.axios.delete(api).then(res => {
+      this.axios.delete(api).then(res => {
         if (res.data.success) {
           this.getCoupons()
           this.alertMessage(`成功刪除優惠卷：${this.tempCoupon.title}`)
@@ -174,7 +174,7 @@ export default {
         return this.tempCoupon.code === item.code && this.tempCoupon.id !== item.id
       })
       if (filterCoupon) {
-        alert('此優惠碼已存在，請更換')
+        this.alertMessage('此優惠碼已存在，請更換')
         throw new Error()
       }
     },
@@ -183,6 +183,7 @@ export default {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupons?page=${page}`
       this.updateLoading(true)
       this.axios.get(api).then(res => {
+        console.log(res)
         this.coupons = res.data.coupons
         this.pagination = res.data.pagination
         this.updateLoading(false)
