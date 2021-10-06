@@ -10,7 +10,7 @@ export default {
   actions: {
     getProducts (context, page = 1) {
       context.commit('LOADING', true)
-      const api = `https:vue-course-api.hexschool.io/api/zxz189/products?page=${page}`
+      const api = `https://vue-course-api.hexschool.io/api/zxz189/products?page=${page}`
       axios.get(api).then(res => {
         context.commit('PRODUCTS', res.data.products)
         context.commit('PAGINATION', res.data.pagination)

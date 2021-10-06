@@ -78,7 +78,7 @@ export default {
     },
     clearCart () {
       this.carts.carts.forEach(item => {
-        const api = `https:vue-course-api.hexschool.io/api/zxz189/cart/${item.id}`
+        const api = `https://vue-course-api.hexschool.io/api/zxz189/cart/${item.id}`
         this.axios.delete(api)
       })
       this.alertMessage('清空購物車')
