@@ -20,8 +20,6 @@ export default {
     signout () {
       this.updateLoading(true)
       const api = `${process.env.VUE_APP_APIPATH}/logout`
-      // CUSTOMPATH: '"zxz189"'
-      // const api = `${process.env.APIPATH}/admin/signin`
       this.axios.post(api, this.user).then(res => {
         if (res.data.success) {
           const token = res.data.token

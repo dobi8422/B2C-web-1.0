@@ -25,7 +25,7 @@ https://dobi8422.github.io/B2C-web-1.0/
 
 ---
 ## 已解決問題
-vue router4 - 未定義網址重新導向至首頁->router3的'*'要改用正規表達式'/:catchAll(.*)'
+vue router4 - 未定義網址重新導向至首頁->router3的`*``要改用正規表達式'/:catchAll(.*)`
 vuex - 使用mapActions縮寫時，且methods和mapActions同名字，不知為何只能傳遞第一個參數(同名字時)；如果要在參數為物件形式傳送，methods和mapActions的名字必須要不同，或是不要使用mapActions縮寫
 
 ---

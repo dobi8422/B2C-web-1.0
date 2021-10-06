@@ -18,9 +18,7 @@ Vue.use(store, validate).use(VueAxios, axios).use(router).mount('#app')
 router.beforeEach((to, from, next) => {
   // console.log(to, from, next)
   if (to.meta.requiresAuth) {
-    const api = 'https://vue-course-api.hexschool.io/api/user/check'
-    // CUSTOMPATH: '"zxz189"'
-    // const api = `${process.env.APIPATH}/admin/signin`
+    const api = `${process.env.VUE_APP_APIPATH}/api/user/check`
     axios.post(api).then((res) => {
       // console.log(res.data)
       if (res.data.success) {

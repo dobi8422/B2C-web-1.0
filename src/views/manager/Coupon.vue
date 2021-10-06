@@ -122,7 +122,7 @@ export default {
       let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon`
       let httpMethod = 'post'
       if (!this.isNew) {
-        api = `https:vue-course-api.hexschool.io/api/zxz189/admin/coupon/${this.tempCoupon.id}`
+        api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon/${this.tempCoupon.id}`
         httpMethod = 'put'
         this.action = '編輯'
       } else {
@@ -139,7 +139,8 @@ export default {
       })
     },
     deleteCoupon () {
-      const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon/${this.couponId}`      this.axios.delete(api).then(res => {
+      const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon/${this.couponId}`
+        this.axios.delete(api).then(res => {
         if (res.data.success) {
           this.getCoupons()
           this.alertMessage(`成功刪除優惠卷：${this.tempCoupon.title}`)
