@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     signin () {
-      const api = 'https://vue-course-api.hexschool.io/admin/signin'
+      const api = `${process.env.VUE_APP_APIPATH}/admin/signin`
       // CUSTOMPATH: '"zxz189"'
       // const api = `${process.env.APIPATH}/admin/signin`
       this.axios.post(api, this.user).then((res) => {

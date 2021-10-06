@@ -73,7 +73,7 @@ export default {
   methods: {
     getOrder () {
       const vm = this
-      const api = `https://vue-course-api.hexschool.io/api/zxz189/order/${vm.orderId}`
+      const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/order/${vm.orderId}`
       this.updateLoading(true)
       this.axios.get(api).then(res => {
         vm.order = res.data.order
@@ -82,7 +82,7 @@ export default {
     },
     payOrder () {
       const vm = this
-      const api = `https://vue-course-api.hexschool.io/api/zxz189/pay/${vm.orderId}`
+      const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/pay/${vm.orderId}`
       this.axios.post(api).then(res => {
         if (res.data.success) {
           vm.getOrder()

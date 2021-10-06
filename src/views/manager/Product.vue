@@ -152,10 +152,10 @@ export default {
       this.getProducts(page)
     },
     updateProduct () {
-      let api = 'https:vue-course-api.hexschool.io/api/zxz189/admin/product'
+      let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product`
       let httpMethod = 'post'
       if (!this.isNew) {
-        api = `https:vue-course-api.hexschool.io/api/zxz189/admin/product/${this.tempProduct.id}`
+        api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product/${this.tempProduct.id}`
         httpMethod = 'put'
         this.action = '編輯'
       } else {
@@ -172,7 +172,7 @@ export default {
       })
     },
     deleteProduct () {
-      const api = `https:vue-course-api.hexschool.io/api/zxz189/admin/product/${this.tempProduct.id}`
+      const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product/${this.tempProduct.id}`
       this.action = '刪除'
       this.axios.delete(api).then(res => {
         if (res.data.success) {
@@ -184,7 +184,7 @@ export default {
       })
     },
     enableProduct () {
-      const api = `https:vue-course-api.hexschool.io/api/zxz189/admin/product/${this.tempProduct.id}`
+      const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product/${this.tempProduct.id}`
       if (this.tempProduct.is_enabled === 0) {
         this.action = '啟用'
         this.tempProduct.is_enabled = 1
@@ -205,7 +205,7 @@ export default {
       const uploadedFile = this.$refs.files.files[0]
       const formData = new FormData()
       formData.append('file-to-upload', uploadedFile)
-      const url = 'https:vue-course-api.hexschool.io/api/zxz189/admin/upload'
+      const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/upload`
       this.status.fileUploading = true
       this.axios.post(url, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }

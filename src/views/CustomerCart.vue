@@ -147,7 +147,7 @@ export default {
     },
     clearCart () {
       this.carts.carts.forEach(item => {
-        const api = `https://vue-course-api.hexschool.io/api/zxz189/cart/${item.id}`
+        const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart/${item.id}`
         this.axios.delete(api)
         this.alertMessage('清空購物車')
         this.getCart()
@@ -155,7 +155,7 @@ export default {
     },
     // 優惠碼
     addCouponCode () {
-      const api = 'https://vue-course-api.hexschool.io/api/zxz189/coupon'
+      const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/coupon`
       const vm = this
       const coupon = {
         code: vm.coupon_code
@@ -172,7 +172,7 @@ export default {
         this.updateLoading(false)
         return
       }
-      const api = 'https://vue-course-api.hexschool.io/api/zxz189/order'
+      const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/order`
       const vm = this
       const order = vm.form
       vm.axios.post(api, { data: order }).then(res => {

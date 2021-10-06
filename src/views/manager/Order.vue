@@ -145,7 +145,7 @@ export default {
   },
   methods: {
     getOrder (page = 1) {
-      const api = `https:vue-course-api.hexschool.io/api/zxz189/orders?page=${page}`
+      const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/orders?page=${page}`
       this.updateLoading(true)
       this.axios.get(api).then(res => {
         this.orderList = res.data.orders
@@ -154,7 +154,7 @@ export default {
       })
     },
     updateOrder () {
-      const api = `https:vue-course-api.hexschool.io/api/zxz189/admin/order/${this.tempOrder.id}`
+      const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/order/${this.tempOrder.id}`
       this.axios.put(api, { data: this.tempOrder }).then(res => {
         if (res.data.success) {
           this.alertMessage('成功修改')

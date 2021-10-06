@@ -119,7 +119,7 @@ export default {
   },
   methods: {
     updateCoupon () {
-      let api = 'https:vue-course-api.hexschool.io/api/zxz189/admin/coupon'
+      let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon`
       let httpMethod = 'post'
       if (!this.isNew) {
         api = `https:vue-course-api.hexschool.io/api/zxz189/admin/coupon/${this.tempCoupon.id}`
@@ -139,8 +139,7 @@ export default {
       })
     },
     deleteCoupon () {
-      const api = `https:vue-course-api.hexschool.io/api/zxz189/admin/coupon/${this.couponId}`
-      this.axios.delete(api).then(res => {
+      const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon/${this.couponId}`      this.axios.delete(api).then(res => {
         if (res.data.success) {
           this.getCoupons()
           this.alertMessage(`成功刪除優惠卷：${this.tempCoupon.title}`)
@@ -150,7 +149,7 @@ export default {
       })
     },
     enableCoupon () {
-      const api = `https:vue-course-api.hexschool.io/api/zxz189/admin/coupon/${this.tempCoupon.id}`
+      const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon/${this.tempCoupon.id}`
       if (this.tempCoupon.is_enabled === 0) {
         this.action = '啟用'
         this.tempCoupon.is_enabled = 1
@@ -180,7 +179,7 @@ export default {
     },
     getCoupons (page = 1) {
       this.tempCoupon = {}
-      const api = `https:vue-course-api.hexschool.io/api/zxz189/admin/coupons?page=${page}`
+      const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupons?page=${page}`
       this.updateLoading(true)
       this.axios.get(api).then(res => {
         this.coupons = res.data.coupons
