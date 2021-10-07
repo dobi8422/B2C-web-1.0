@@ -12,7 +12,6 @@ export default {
       context.commit('LOADING', true)
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/products?page=${page}`
       axios.get(api).then(res => {
-        console.log(res)
         context.commit('PRODUCTS', res.data.products)
         context.commit('PAGINATION', res.data.pagination)
         context.commit('LOADING', false)

@@ -47,7 +47,7 @@ export default {
   },
   mounted () {
     this.fullWidth = window.innerWidth
-    window.onresize = () => { this.fullWidth = window.innerWidth }
+    window.onresize = () => { this.fullWidth = document.body.clientWidth }
     this.scrollTop = document.documentElement.scrollTop || document.body.scrollTop
     window.onscroll = () => { this.scrollTop = document.documentElement.scrollTop || document.body.scrollTop }
   }
