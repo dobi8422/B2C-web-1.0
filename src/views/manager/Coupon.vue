@@ -183,7 +183,6 @@ export default {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupons?page=${page}`
       this.updateLoading(true)
       this.axios.get(api).then(res => {
-        console.log(res)
         this.coupons = res.data.coupons
         this.pagination = res.data.pagination
         this.updateLoading(false)

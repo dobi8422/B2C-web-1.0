@@ -82,7 +82,6 @@ export default {
         this.axios.delete(api)
       })
       this.alertMessage('清空購物車')
-      console.log('清空購物車')
       this.getCart()
     },
     currency (num) {

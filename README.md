@@ -2,6 +2,18 @@
 ### Demo:
 https://dobi8422.github.io/B2C-web-1.0/
 ### API:六角學院提供
+
+1. 購物車,訂單頁面
+![](https://i.postimg.cc/CKwGt56d/0.png)
+2. 商品頁面
+![](https://i.postimg.cc/m2wC9Brs/1.png)
+3. 商品頁面右下角的小購物車
+![](https://i.postimg.cc/Y9YmCwPT/2.png)
+4. 商品管理頁面
+![](https://i.postimg.cc/VNbJK8z5/3.png)
+![](https://i.postimg.cc/LXp8vgy0/4.png)
+
+
 ---
 ## 功能細項
 * 商品分類

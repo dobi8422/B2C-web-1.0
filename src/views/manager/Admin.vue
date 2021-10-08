@@ -24,7 +24,6 @@ export default {
         if (res.data.success) {
           const token = res.data.token
           const expired = res.data.expired
-          // console.log(token, expired)
           document.cookie = `hexToken=${token};expires=${new Date(expired)}`
           this.$router.push('/login')
           this.updateLoading(false)

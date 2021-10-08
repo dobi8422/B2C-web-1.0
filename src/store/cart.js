@@ -16,7 +16,6 @@ export default {
       })
     },
     deleteCartItem (context, { id, qty, unit, title }) {
-      console.log(id, qty, unit, title)
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart/${id}`
       axios.delete(api).then(res => {
         context.dispatch('getCart')
@@ -32,7 +31,6 @@ export default {
         qty
       }
       axios.post(api, { data: cart }).then(res => {
-        console.log(res.data.data.product.title)
         const str = `${res.data.data.product.title} 已加入購物車`
         context.dispatch('alertMessage', str)
         context.dispatch('getCart')
